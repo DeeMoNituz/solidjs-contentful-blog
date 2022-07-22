@@ -1,7 +1,6 @@
 import { createResource, Show, For, createEffect } from "solid-js";
-import { client } from "../Utils/fetch";
+import { client } from "../Utils";
 import { GridSkelton, Skelton } from "./Loading";
-import { Modal, searchStore } from "./Search";
 function Author(props) {
   return (
     <>
@@ -23,31 +22,30 @@ function Author(props) {
 }
 export function PostCard(props) {
   return (
-    <>
+    <div style={{width: '300px',height:'300px'}} class="bg-yellow-600">
       <a
-        href={`/posts/${props.post.id}`}
+        href={`/post/${props.post.sys.id}`}
         rel="noopener noreferrer"
         className="max-w-sm mx-auto group hover:no-underline focus:no-underline dark:bg-gray-900"
       >
         <img
           role="presentation"
           className="object-cover w-full rounded h-44 dark:bg-gray-500"
-          src={props.post.featured_image}
+          src={props.post.fields.featuredImage.fields.file.url}
         />
         <div className="flex justify-between ">
           <span class="mt-3 mx-3 text-gray-600">June 4, 2020</span>
-          <span class="mt-3 mx-3 text-gray-600"> {props.post.tag || 'Reactjs'}</span>
+          <span class="mt-3 mx-3 text-gray-600">  Reactjs </span>
         </div>
 
         <div className="px-6 py-2 space-y-2 ">
           <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">
-            {props.post.title || "In usu laoreet repudiare legendos"}
+            {props.post.fields.title || "In usu laoreet repudiare legendos"}
           </h3>        
-          <p class="align-baseline">{props.post.excerpt}</p>
+          <p class="align-baseline">{props.post.fields.summary}</p>
         </div>
-       
       </a>
-    </>
+    </div>
   );
 }
 function Featured(props) {
@@ -78,38 +76,10 @@ function Featured(props) {
   );
 }
 export default function PostGrid() {
-  const [posts3,refetch] = createResource(() =>
-    client
-      .query(
-        `
-    query {
-      posts {
-        createdAt
-        title
-        id     
-        excerpt
-        postAuthor
-        featured_image 
-        tag  
-      }
-    }
-    `
-      )
-      .toPromise()
-      .then((data) => {
-        return data.data.posts;
-      }).catch(e=>{
-        console.log('Refetch may fix the error!!');
-        refetch();
-      })
-  );
+  const [posts3] = createResource(()=>client.getEntries().then((posts)=>posts).catch(e=>{
+    console.log(e)
+  }))
 
-  // createEffect(( )=>{
-  //   if(posts3==undefined){
-  //     console.log('Need to refetch !!');
-  //     refetch();
-  //   }
-  // })
  
   return (
     <>
@@ -118,10 +88,8 @@ export default function PostGrid() {
           <span class="  ">
             <Featured />
           </span>
-
-          <Show
-            when={posts3()?.length>0}
-            fallback={() => (
+          {/*{JSON.stringify(posts3())}*/}
+          <Show when={posts3()?.items.length>0} fallback={() => (
               <div class="">
                 <GridSkelton />
               </div>
@@ -129,7 +97,7 @@ export default function PostGrid() {
           >
             <div className="grid justify-center grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {" "}
-              <For each={posts3()}>{(post) => <PostCard post={post} />}</For>
+              <For each={posts3()?.items}>{(post) => <PostCard post={post} />}</For>
             </div>{" "}
           </Show>
 
@@ -138,7 +106,7 @@ export default function PostGrid() {
               type="button"
               className="px-6 py-3 text-sm rounded-md hover:underline dark:bg-gray-900 dark:text-gray-400"
             >
-             
+
             </button>
           </div>
         </div>

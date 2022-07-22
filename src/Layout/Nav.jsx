@@ -1,5 +1,5 @@
 import { For } from "solid-js";
-import Search from "../components/Search";
+
 
 export default function Nav() {
   return (
@@ -47,7 +47,7 @@ export default function Nav() {
               </For>
               <div class="relative mt-4 lg:mt-0 lg:mx-4">
                 {/* Search component  */}
-                <Search />
+                {/*<Search />*/}
               </div>
             </div>
           </div>

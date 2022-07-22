@@ -1,5 +1,5 @@
 
-<h3 align="center">SolidJS Blog</h3>
+<h3 align="center">Contentful-Solidjs Blog</h3>
 
 <div align="center">
 
@@ -10,7 +10,7 @@
 
 ---
 
-<p align="center"> This is a Solidjs blog App with Tailwindcss.
+<p align="center"> This is a Solidjs blog using Contentful Headless CMS and TailwindCSS
     <br> 
 </p>
 
@@ -25,16 +25,15 @@
 
 ## 🧐 About <a name = "about"></a>
 
-The aim of the project is to setup complete blog using `Solidjs`` the back end for this app can run on a server. Building app with Solid is so cool, it is similar to Reactjs but with a 🚀 speed.
-
+This is a blog project using **Contentful CMS** and Solidjs, which perform like Usainbolt .
  
 
-### 🔎  Graphql API <a name = "Graphql"></a>
-For the project I utilised the `mockend` app to create mock `REST/Graphql API`. With a simple Json file (Github Repo) able to build the whole API required. I tested the Graphql with Apollo studio and it was cool.
+### 🔎  Contentful CMS <a name = "cms"></a>
+For the project I have used the Contentful CMS, to work with your own data need to register an account on contentful site and grab the credentials from Settings and configure it with Utils module.
  
 ### 🧒 Prerequisites <a name = "Prerequisites"></a>
 
-You have to familiar with Javascript frameworks such as `Reactjs` and `HTML`,`CSS` and ofcourse the `Javascript` inorder to work with this project.
+You have to familiar with Javascript frameworks such as `Solidjs` and `HTML`,`CSS` and ofcourse the `Javascript` inorder to work with this project.
 
 ## ⌚ Using the project
 
@@ -56,11 +55,10 @@ yarn dev
 
 ## 🚀  Built Using <a name = "built_using"></a>
 
-- [Solidjs](http://solidjs.com/) - Solidjs
-- [urql/core](https://formidable.com/open-source/urql/) - Graphql Client
-- [Tailwindcss](https://tailwindcss.com/) - TailwindCSS
-- [Mockend](https://mockend.com/) - Mockend
-- [Vitejs](https://vitejs.dev/) - Vitejs
+- [Solidjs](http://solidjs.com/) 
+- [Tailwindcss](https://tailwindcss.com/) 
+- [Contentful Headless CMS](https://contentful.com/)
+- [Vitejs](https://vitejs.dev/) - Build Tool
 - [NodeJs](https://nodejs.org/en/) - Server Environment
 
 ## ✍️ Authors <a name = "authors"></a> and Guides

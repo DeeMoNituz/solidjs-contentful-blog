@@ -5,5 +5,4 @@ const client=createClient({
     accessToken:'DXG7DohnxRncpcxSPtLGr5fR4_fzjyzRzVZAiP9Ussk'
 });
 
-
 export {client}

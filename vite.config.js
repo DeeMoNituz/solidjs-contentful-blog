@@ -8,8 +8,8 @@ export default defineConfig(({ command, mode }) => {
     // vite config
     define: {
       BRAND:JSON.stringify("JS BLOG"),
-      NAV_MENU:[{caption:"Home",path:"/"},{caption:"News",path:"/post"},{caption:"Category",path:"/tag"},{caption:"About",path:"/About"}],
-      API_GQL:JSON.stringify(env.API_GQL),
+      NAV_MENU:[{caption:"Home",path:"/"},{caption:"Category",path:"/tag"},{caption:"About",path:"/About"}],
+
           },
     plugins: [solidPlugin()],
    build: {
