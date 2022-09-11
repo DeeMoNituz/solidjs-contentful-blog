@@ -1,4 +1,4 @@
-import styles from './PNF.module.css'
+import styles from 'components/PNF.module.css'
 export default function PNF(){
     return (<>
      <div><svg id="404-Dave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 250">

@@ -1,5 +1,5 @@
 import Layout from ".";
-import PNF from '../components/PNF'
+import PNF from 'components/PNF'
 export default function PageNotFound(){
     return (<>
     <Layout>

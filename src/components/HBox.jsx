@@ -1,4 +1,4 @@
-  import styles from './HBox.module.css';
+  import styles from 'components/HBox.module.css';
 export default function HBox(props) {
   return (
     <>

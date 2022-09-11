@@ -1,8 +1,15 @@
 /* @refresh reload */
-import { render } from 'solid-js/web';
+import { render } from "solid-js/web";
 import "tailwindcss/tailwind.css";
-import './index.css';
-import App from './App';
-import { Router } from 'solid-app-router';
+import "./index.css";
+import App from "@/App";
+import Layout from "@/Layout";
 
-render(() =><Router> <App /></Router>, document.getElementById('root'));
+render(
+  () => (
+    <Layout>
+      <App />
+    </Layout>
+  ),
+  document.getElementById("root")
+);

@@ -1,7 +1,6 @@
 import { createResource, For, Show } from "solid-js";
-import { GridSkelton, Skelton } from "../../components/Loading";
-import Layout from "../../Layout";
-import {client} from "../../Utils";
+import { GridSkelton, Skelton } from "components/Loading";
+import {client} from "@/Utils";
 function RelatedPosts(props) {
   const posts=[];
 
@@ -118,11 +117,11 @@ export default function SinglePost(props) {
   );
   return (
     <>
-      <Layout>
+      <div>
         <Show when={myPost()?.fields}  fallback={()=><span className=""><GridSkelton/></span>}>
           {<Post post={myPost()} fallback={<div>I am looking for it</div>} />}
         </Show>
-      </Layout>{" "}
+      </div>{" "}
     </>
   );
 }
